@@ -1,0 +1,17 @@
+version: "3.8"
+
+networks:
+    my-network:
+        driver: bridge
+        
+
+services:
+    apache:
+        container_name: hello-apache
+        image: httpd:latest
+        cpus: 1.5
+        mem_limit: 1024m
+        ports:
+            - "80:80"
+        volumes:
+        - ./website:/usr/local/apache2/htdocs
